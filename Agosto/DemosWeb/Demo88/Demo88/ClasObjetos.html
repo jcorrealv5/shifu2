@@ -1,0 +1,24 @@
+<html>
+	<body>
+		{% load static %}
+		<link href="{% static 'static/styles/DADLCV.css'%}" rel="stylesheet" />
+		<div class="Titulo">Demo 88: Clasificacion de Objetos usando ResNet e ImageNet</div>
+		<div class="Subtitulo">Selecciona una Imagen conteniendo un objeto
+			<input id="txtArchivo" type="text" width="300px"/>
+			<input id="btnAbrirArchivo" type="button" value="..."/>
+			<input id="fupArchivo" type="file" style="display:none"/>
+		</div>
+		<div>
+			<input type="button" id="btnClasificar" value="Clasificar"/>
+			<input type="button" id="btnNuevo" value="Nuevo"/>
+		</div>
+		<div>
+			<span id="spnRpta" style="font-weight:bold"></span>
+		</div>
+		<div>
+			<img id="imgOriginal" width="500" height="500"/>
+		<div>
+		{% csrf_token %}
+		<script src="{% static 'Demo88/ClasObjetos.js'%}"></script>
+	</body>
+</html>
