@@ -54,7 +54,7 @@ pesos = {0: 0.2255096518130976,
  39: 0.0320159823784033}
 
 inicio = datetime.now()
-print("Demo 93: Entrenar un Modelo para Reconocer Personas Famosas usando )
+print("Demo 93: Entrenar un Modelo para Reconocer Personas Famosas usando CelebA")
 
 print("1. Crear el DataSet CelebA")
 dsTrain = datasets.CelebA(root="datasets",download=True,
@@ -94,7 +94,7 @@ print(modelo)
 
 print("6. Entrenando el Modelo en: " + device.type)
 encontroOptimo=False
-epocas = 10
+epocas = 100
 totalMuestras = len(dsTrain)
 lr = 0.001
 print("Total de Muestras: ", totalMuestras)
@@ -106,8 +106,8 @@ criterio = nn.BCEWithLogitsLoss(weight=weight_tensor)
 optimizador = torch.optim.Adam(modelo.parameters(), lr)
 #optimizador = torch.optim.RMSprop(modelo.parameters(), lr=lr, alpha=0.99, eps=1e-8)
 #scheduler = optim.lr_scheduler.ExponentialLR(optimizador, gamma=0.9)
-modelo.train()
-for epoca in range(epocas):    
+for epoca in range(epocas):
+    modelo.train()
     total = 0
     for i, (entradas, etiquetas) in enumerate(dlTrain):        
         if(total<(totalMuestras-batchSize)):
