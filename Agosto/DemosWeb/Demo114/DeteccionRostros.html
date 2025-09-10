@@ -1,0 +1,22 @@
+<html>
+	<body>
+		{% load static %}
+		<link href="{% static 'static/styles/DADLCV.css'%}" rel="stylesheet" />
+		<div class="Titulo">Demo 114: Deteccion de Rostros con faceNet_PyTorch</div>
+		<input id="btnDetectar" type="button" value="Detectar"/>
+		<table>
+			<tr>
+				<td style="width:40%">
+					<video id="video" width="700" height="550" style="background-color:lightgray" autoplay></video>
+				</td>
+				<td style="width:40%">
+					<img id="imgDetectada" width="700" height="550"/>
+					<canvas id="canvas" width="700" height="550" style="display:none"></canvas>
+				</td>
+				<td style="width:20%"><div id="divEstadistica"></div></td>
+			</tr>
+		</table>
+		{% csrf_token %}
+		<script src="{% static 'Demo114/DeteccionRostros.js'%}"></script>
+	</body>
+</html>
